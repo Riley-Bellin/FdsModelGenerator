@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FDS 3D Data Uploader</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Main Navigation Header (Collapsible) -->
+  <header>
+    <div class="nav-container">
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle Navigation">
+        &#9776;
+      </button>
+      <nav id="navMenu" class="nav-menu">
+        <ul>
+          <li><a href="#" id="homeBtn" class="active">View Model</a></li>
+          <li><a href="#" id="uploadBtn">Upload</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="homeSection" class="section-active">
+    <div class="hero">
+      <h1>FDS 3D Viewer</h1>
+      <p>View your 3D model representation.</p>
+      <!-- 3D Model Preview Container -->
+      <div id="model-container">
+        <div class="cube">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face right"></div>
+          <div class="face left"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Data Gallery Section -->
+    <section id="dataGallery" class="section-active">
+      <div class="data-gallery-header">
+        <h2>Models</h2>
+        <nav class="gallery-nav">
+          <input type="text" id="gallerySearchInput" placeholder="Search by Model Name." />
+          <select id="dateFilter">
+            <option value="all">All Dates</option>
+            <option value="today">Today</option>
+            <option value="thisWeek">This Week</option>
+            <option value="thisMonth">This Month</option>
+          </select>
+          <select id="orgFilter">
+            <option value="all">All Organizations</option>
+            <option value="OrgA">Organization A</option>
+            <option value="OrgB">Organization B</option>
+            <option value="OrgC">Organization C</option>
+          </select>
+          <select id="sortOption">
+            <option value="dateDesc">Newest First</option>
+            <option value="dateAsc">Oldest First</option>
+            <option value="titleAsc">Title A-Z</option>
+            <option value="titleDesc">Title Z-A</option>
+          </select>
+        </nav>
+      </div>
+      <div class="data-gallery-content">
+        <div class="data-boxes">
+          <!-- Each data-box now carries data attributes for filtering and sorting -->
+          <div class="data-box" data-org="OrgA" data-date="2025-02-01" data-title="Title One">
+            <img src="thumbnail1.jpg" alt="Thumbnail 1" />
+            <h3>Title One</h3>
+            <p>Date Added: 2025-02-01</p>
+            <p>Organization: OrgA</p>
+          </div>
+          <div class="data-box" data-org="OrgB" data-date="2025-02-02" data-title="Title Two">
+            <img src="thumbnail2.jpg" alt="Thumbnail 2" />
+            <h3>Title Two</h3>
+            <p>Date Added: 2025-02-02</p>
+            <p>Organization: OrgB</p>
+          </div>
+          <!-- More data boxes can be added here -->
+        </div>
+        <button id="loadMoreBtn" class="load-more">Load More</button>
+      </div>
+    </section>
+  </section>
+
+  <!-- Upload Section -->
+  <section id="uploadSection" class="section-hidden">
+    <div class="upload-section">
+      <h1>Upload Your Data</h1>
+      <p>Please select a file to upload. (Placeholder content)</p>
+      <form id="upload-form" action="#" method="post" enctype="multipart/form-data">
+        <input type="file" name="datafile" id="datafile" />
+        <button type="submit">Upload</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FDS 3D Data Uploader. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for Detailed View -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
